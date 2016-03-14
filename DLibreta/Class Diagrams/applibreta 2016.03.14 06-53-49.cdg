@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="applibreta">
+  <ClassDiagramComponents>
+    <Class name="APPLibreta" package="applibreta" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Contacto" package="applibreta" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="ncontactos" type="int" visibility="public" isStatic="true"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellidos" type="String" visibility="private"/>
+        <Field name="grupo" type="Grupo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellidos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNcontactos" returnType="int" visibility="public"/>
+        <Method name="setNcontactos" returnType="void" visibility="public">
+          <Argument type="int" name="ncontactos"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellidos" returnType="String" visibility="public"/>
+        <Method name="setApellidos" returnType="void" visibility="public">
+          <Argument type="String" name="apellidos"/>
+        </Method>
+        <Method name="getGrupo" returnType="Grupo" visibility="public"/>
+        <Method name="setGrupo" returnType="void" visibility="public">
+          <Argument type="Grupo" name="grupo"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Grupo" package="applibreta" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="contactos" type="Contacto[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getContactos" returnType="Contacto[]" visibility="public"/>
+        <Method name="setContactos" returnType="void" visibility="public">
+          <Argument type="Contacto[]" name="contactos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Libreta" package="applibreta" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="contactos" type="Contacto[]" visibility="private" isFinal="true"/>
+        <Field name="grupos" type="Grupo[]" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="engadir" returnType="void" visibility="public">
+          <Argument type="Contacto" name="contacto"/>
+        </Method>
+        <Method name="engadir" returnType="void" visibility="public"/>
+        <Method name="listar" returnType="void" visibility="public"/>
+        <Method name="borrar" returnType="void" visibility="public"/>
+        <Method name="crearGrupo" returnType="void" visibility="public"/>
+        <Method name="agregarAGrupo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="applibreta.Contacto" target="applibreta.Grupo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="applibreta.Libreta" target="applibreta.Contacto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="grupo" source="applibreta.Contacto" target="applibreta.Grupo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="applibreta.Grupo" target="applibreta.Contacto" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
